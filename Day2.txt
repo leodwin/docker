@@ -1,0 +1,31 @@
+#Dockerfile
+FROM nginx
+MAINTAINER Leodwin
+RUN apt-get update -y
+RUN apt-get install git -y
+#RUN apt-get update -y && apt-get install git -y
+WORKDIR /usr/share/nginx/html
+RUN git clone https://github.com/microsoft/project-html-website
+
+--------------------
+Dynamic docker image
+---------------------
+#leo.Dockerfile
+FROM centos
+ARG x=ftp
+# x available only during the build
+# it will be dynamic variable that you can replace during the build
+ENV c=hello
+# c is available inside the container
+RUN yum install $x -y
+
+docker build  -f leo.Dockerfile --build-arg x=telnet -t leonginx2:telnet .
+
+
+# building the image from github
+docker build -t leo:3app docker build -t leo:3app https://github.com/leodwin/docker.git
+
+# building the container with default app
+docker run -itd --name blackleo -p 1131:80 leo:3app
+docker run -itd --name greenleo -p 1141:80 -e color=green leo:3app
+docker run -itd --name greenleo -p 1141:80 -e color=green leo:3app
