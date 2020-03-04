@@ -1,3 +1,7 @@
+HOST: 34.233.67.103
+id: Leo
+pass# Oracledocker@123
+
 #Dockerfile
 FROM nginx
 MAINTAINER Leodwin
@@ -104,6 +108,15 @@ docker run -itd --name leodb -e MYSQL_ROOT_PASSWORD=docker mysql
 docker logs leodb -f
 
 docker run -itd --name leodb2 -e MYSQL_ROOT_PASSWORD=docker -v /home/leo/day2/mydb/:/var/lib/mysql/ mysql
+
+
+---RESTART 
+
+docker run -itd --name leorestart --restart always alpine ping fb.com
+
+https://docs.docker.com/config/containers/start-containers-automatically/
+
+https://slashdevops.blogspot.com/2016/04/some-docker-basic-operation-operations.html
 
 
 
