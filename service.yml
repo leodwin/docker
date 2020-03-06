@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: leonamespace
+  creationTimestamp: null
+  labels:
+    app: leoday5app2
+  name: leoday5app2
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: leoday5app2
+  type: NodePort
+status:
+  loadBalancer: {}

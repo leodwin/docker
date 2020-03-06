@@ -3,6 +3,7 @@
 if [ "$color" == "black" ]
 then
 	cp /opt/leo.html /var/www/html/index.html
+	cp /opt/docker.png /var/www/html/docker.png
 	httpd -DFOREGROUND
 
 elif [ "$color" == "red" ]
